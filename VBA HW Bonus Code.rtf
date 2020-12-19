@@ -18,7 +18,6 @@
   Dim tickervolume As String\
   Dim tickerincrease As String\
   \
-\
   BonusRows = Array("Greatest % Increase", "Greatest % Decrease", "Greatest Total Volume")\
   \
   greatestincrease = ws.Cells(2, 11).Value\
@@ -27,7 +26,6 @@
   tickerincrease = ws.Cells(2, 9).Value\
   tickerdecrease = ws.Cells(2, 9).Value\
   tickervolume = ws.Cells(2, 9).Value\
-  \
   \
   LastRow_PercentChange = ws.Cells(Rows.Count, 11).End(xlUp).Row\
   LastColumn = ws.Cells(1, Columns.Count).End(xlToLeft).Column\
@@ -41,7 +39,6 @@
     ws.Cells(1, LastColumn + 1).Value = "Ticker"\
     ws.Cells(1, LastColumn + 2).Value = "Value"\
      \
-\
 For i = 2 To LastRow_PercentChange\
 \
     If greatestincrease < ws.Cells(i, 11).Value Then\
@@ -50,21 +47,18 @@ For i = 2 To LastRow_PercentChange\
         \
     End If\
         \
-        \
     If greatestdecrease > ws.Cells(i, 11).Value Then\
         greatestdecrease = ws.Cells(i, 11).Value\
         tickerdecrease = ws.Cells(i, 9).Value\
         \
     End If\
     \
-        \
    If greateststockvolume < ws.Cells(i, 12).Value Then\
        greateststockvolume = ws.Cells(i, 12).Value\
        tickervolume = ws.Cells(i, 9).Value\
        \
     End If\
   \
-    \
 Next i\
 \
   ws.Cells(2, 17).Value = greatestincrease\
@@ -75,7 +69,6 @@ Next i\
   ws.Cells(2, 16).Value = tickerincrease\
   ws.Cells(3, 16).Value = tickerdecrease\
   ws.Cells(4, 16).Value = tickervolume\
-        \
   \
  Next ws\
 \
